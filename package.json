@@ -15,7 +15,8 @@
     "express-validator": "^6.4.0",
     "got": "^10.4.0",
     "helmet": "^3.21.3",
-    "lowdb": "^1.0.0"
+    "lowdb": "^1.0.0",
+    "nodemon": "^2.0.2"
   },
   "devDependencies": {
     "morgan": "~1.9.1"
