@@ -9,7 +9,7 @@ async function getMovies(moviesArray, page) {
 
       const { results } = JSON.parse(response.body);
 
-      results.forEach(movie => {
+      results.forEach((movie) => {
         moviesArray.push(movie);
       });
     } catch (error) {
@@ -33,7 +33,7 @@ async function getGenres() {
 
     const { genres } = JSON.parse(response.body);
 
-    genres.forEach(genre => {
+    genres.forEach((genre) => {
       genresArray.push(genre);
     });
 
