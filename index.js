@@ -18,7 +18,6 @@ app.use(helmet());
 if (process.env.NODE_ENV === "production") {
   app.use(
     morgan("common", {
-      // log 400s and 500s only
       skip: (req, res) => res.statusCode < 400,
       stream: `${__dirname}/../morgan.log`,
     })
