@@ -20,30 +20,23 @@ class DB {
   addMovieToDBFromPOSTRequest(movie) {
     if (validateMovies(movie) === true && !this.findMovieByTitle(movie.title)) {
       movie.id = this.getNextID();
-      movie = formatMovies(movie);
 
-      movie.genres.forEach(genre => this.genres.add(genre));
+      movie.genres.forEach((genre) => this.genres.add(genre));
       this.years.add(dayjs(movie.date).format("YYYY"));
       this.rates.add(movie.rate);
 
-      this.db
-        .get("movies")
-        .push(movie)
-        .write();
+      this.db.get("movies").push(movie).write();
       return true;
     }
   }
 
   addMovieToDBFromAPI(movie) {
     if (validateMovies(movie) === true && !this.findMovieByTitle(movie.title)) {
-      movie.genres.forEach(genre => this.genres.add(genre));
+      movie.genres.forEach((genre) => this.genres.add(genre));
       this.years.add(dayjs(movie.date).format("YYYY"));
       this.rates.add(movie.rate);
 
-      this.db
-        .get("movies")
-        .push(movie)
-        .write();
+      this.db.get("movies").push(movie).write();
     }
   }
 
@@ -61,7 +54,7 @@ class DB {
       .find({ id: Number(movieID) })
       .value();
 
-    movieToDelete.genres.forEach(genre => this.genres.delete(genre));
+    movieToDelete.genres.forEach((genre) => this.genres.delete(genre));
     this.rates.delete(movieToDelete.rate);
     this.years.delete(dayjs(movieToDelete.date).format("YYYY"));
 
@@ -93,10 +86,7 @@ class DB {
   }
 
   checkIfMovieExistsByTitle(movieTitle) {
-    const result = this.db
-      .get("movies")
-      .find({ title: movieTitle })
-      .value();
+    const result = this.db.get("movies").find({ title: movieTitle }).value();
 
     return result !== undefined ? true : false;
   }
@@ -111,18 +101,15 @@ class DB {
   }
 
   findMovieByTitle(movieTitle) {
-    const result = this.db
-      .get("movies")
-      .find({ title: movieTitle })
-      .value();
+    const result = this.db.get("movies").find({ title: movieTitle }).value();
 
     return result !== undefined ? result : false;
   }
 
   getGenres() {
     const result = [];
-    this.getMovies().forEach(movie => {
-      movie.genres.forEach(genre => {
+    this.getMovies().forEach((movie) => {
+      movie.genres.forEach((genre) => {
         if (!result.includes(genre)) {
           result.push(genre);
         }
@@ -134,7 +121,7 @@ class DB {
 
   getYears() {
     const result = [];
-    this.getMovies().forEach(movie => {
+    this.getMovies().forEach((movie) => {
       const year = dayjs(movie.date).format("YYYY");
       if (!result.includes(year)) {
         result.push(year);
@@ -145,7 +132,7 @@ class DB {
 
   getRates() {
     const result = [];
-    this.getMovies().forEach(movie => {
+    this.getMovies().forEach((movie) => {
       if (!result.includes(movie.rate)) {
         result.push(movie.rate);
       }
@@ -155,7 +142,7 @@ class DB {
 
   getByYear(year) {
     const result = [];
-    this.getMovies().forEach(movie => {
+    this.getMovies().forEach((movie) => {
       const yearOfMovie = dayjs(movie.date).format("YYYY");
       if (!result.includes(yearOfMovie) && yearOfMovie === year) {
         result.push(movie);
@@ -166,8 +153,8 @@ class DB {
 
   getByGenre(genre) {
     const result = [];
-    this.getMovies().forEach(movie => {
-      movie.genres.forEach(genreInMovie => {
+    this.getMovies().forEach((movie) => {
+      movie.genres.forEach((genreInMovie) => {
         if (
           !result.includes(genreInMovie) &&
           genreInMovie === this.uppercaseFirstLetter(genre)
@@ -214,10 +201,7 @@ class DB {
   }
 
   length() {
-    return this.db
-      .get("movies")
-      .size()
-      .value();
+    return this.db.get("movies").size().value();
   }
 }
 

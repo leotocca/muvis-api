@@ -4,7 +4,7 @@ async function getMovies(moviesArray, page) {
   if (moviesArray.length < 100) {
     try {
       const response = await got(
-        `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.TMDB_API_KEY}&language=en-US&page=${page}`
+        `https://api.themoviedb.org/3/movie/top_rated?api_key=41a480680f9fb7007ca6d5fc6849dc88&language=en-US&page=${page}`
       );
 
       const { results } = JSON.parse(response.body);
@@ -54,3 +54,4 @@ async function makeRequests() {
 }
 
 module.exports = makeRequests;
+

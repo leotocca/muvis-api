@@ -6,21 +6,22 @@ const schema = require("../utils/schemaValidation.js");
 
 router
   .route("/")
-  .get((req, res, next) => {
-    if (req.query.year || req.query.genre || req.query.sortBy) {
-      if (req.query.year) {
-        res.status(200).json(db.getByYear(req.query.year));
-      } else if (req.query.genre) {
-        res.status(200).json(db.getByGenre(req.query.genre));
-      } else {
-        res.status(200).json(db.sortBy(req.query.sortBy));
-      }
+  .get((req, res) => {
+    const { year, genre, sortBy } = req.query;
+    if (year) {
+      res.status(200).json(db.getByYear(year));
+    } else if (genre) {
+      res.status(200).json(db.getByGenre(genre));
+    } else if (sortBy) {
+      res.status(200).json(db.sortBy(sortBy));
     } else {
       res.status(200).json(db.getMovies());
     }
   })
   .post(checkSchema(schema), (req, res, next) => {
-    const errors = validationResult(req);
+    req.body.rate = Number(req.body.rate);
+
+    const errors = validationResult(req.body);
     if (!errors.isEmpty()) {
       const err = new Error(errors.array()[0].msg);
       res.status(404);
@@ -39,6 +40,8 @@ router
     }
   })
   .put(checkSchema(schema), (req, res, next) => {
+    req.body.rate = Number(req.body.rate);
+
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       const err = new Error(errors.array()[0].msg);
@@ -47,7 +50,7 @@ router
     }
 
     if (db.checkIfMovieExistsByID(req.body.id)) {
-      db.updateMovieInDB(movie);
+      db.updateMovieInDB(req.body);
       res.status(200).json(db.findMovieByTitle(req.body.title));
     } else {
       db.addMovieToDBFromPOSTRequest(req.body);

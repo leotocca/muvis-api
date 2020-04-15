@@ -1,6 +1,5 @@
 const Ajv = require("ajv");
 const ajv = new Ajv({ allErrors: true });
-const dayjs = require("dayjs");
 
 const schema = {
   type: "object",
@@ -13,8 +12,8 @@ const schema = {
     genres: { type: "array", contains: { type: "string" } },
     poster: { type: "string" },
     backdrop: { type: "string" },
-    rate: { type: "number", minimum: 1, maximum: 10 }
-  }
+    rate: { type: "number", minimum: 1, maximum: 10 },
+  },
 };
 
 const validate = ajv.compile(schema);
