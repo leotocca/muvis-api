@@ -74,7 +74,7 @@ router
     }
 
     if (db.checkIfMovieExistsByID(req.params.id)) {
-      db.updateMovieInDB(req.body);
+      db.updateMovieInDB(req.params.id, req.body);
       res.status(200).json(db.findMovieByID(req.params.id));
     } else {
       const err = new Error(

@@ -40,10 +40,10 @@ class DB {
     }
   }
 
-  updateMovieInDB(movie) {
+  updateMovieInDB(movieID, movie) {
     this.db
       .get("movies")
-      .find({ id: Number(movie.id) })
+      .find({ id: Number(movieID) })
       .assign(movie)
       .write();
   }
