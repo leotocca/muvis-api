@@ -19,14 +19,14 @@ router
     }
   })
   .post(checkSchema(schema), (req, res, next) => {
-    req.body.rate = Number(req.body.rate);
-
-    const errors = validationResult(req.body);
+    const errors = validationResult(req);
     if (!errors.isEmpty()) {
       const err = new Error(errors.array()[0].msg);
       res.status(404);
-      next(err);
+      return next(err);
     }
+
+    req.body.rate = Number(req.body.rate);
 
     if (!db.checkIfMovieExistsByTitle(req.body.title)) {
       db.addMovieToDBFromPOSTRequest(req.body);
@@ -37,24 +37,6 @@ router
       );
       res.status(404);
       next(err);
-    }
-  })
-  .put(checkSchema(schema), (req, res, next) => {
-    req.body.rate = Number(req.body.rate);
-
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      const err = new Error(errors.array()[0].msg);
-      res.status(404);
-      next(err);
-    }
-
-    if (db.checkIfMovieExistsByID(req.body.id)) {
-      db.updateMovieInDB(req.body);
-      res.status(200).json(db.findMovieByTitle(req.body.title));
-    } else {
-      db.addMovieToDBFromPOSTRequest(req.body);
-      res.status(200).json(db.findMovieByTitle(req.body.title));
     }
   });
 
@@ -88,7 +70,7 @@ router
     if (!errors.isEmpty()) {
       const err = new Error(errors.array()[0].msg);
       res.status(404);
-      next(err);
+      return next(err);
     }
 
     if (db.checkIfMovieExistsByID(req.params.id)) {

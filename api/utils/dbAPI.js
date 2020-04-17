@@ -81,7 +81,6 @@ class DB {
       .get("movies")
       .find({ id: Number(movieID) })
       .value();
-
     return result !== undefined ? true : false;
   }
 
