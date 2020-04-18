@@ -2,13 +2,13 @@
 
 ## How to use the project:
 
-Clone the repo and run `node index.js`, then do the requests to `localhost:3000/api/muvis/`
+Clone the repo and run `npm install` to install the dependencies. Then run `npm run dev` and do the requests to `localhost:3000/api/muvis/`
 
 ## Endpoints:
 
 | Endpoint  | Method | Response                                           |
 | --------- | ------ | -------------------------------------------------- |
-| `/`       | GET    | 100 movies in json format                          |
+| `/`       | GET    | 100 movies in `json` format                        |
 | `/`       | POST   | Adds a new movie, returns the movie that was added |
 | `/:id`    | GET    | The movie with the ID param                        |
 | `/:id`    | PUT    | Modifies the movie with the ID param               |
