@@ -1,10 +1,10 @@
 # muvis-api
 
-# How to use the project:
+## How to use the project:
 
 Clone the repo and run `node index.js`, then do the requests to `localhost:3000/api/muvis/`
 
-# Endpoints:
+## Endpoints:
 
 | Endpoint  | Method | Response                                           |
 | --------- | ------ | -------------------------------------------------- |
@@ -17,7 +17,7 @@ Clone the repo and run `node index.js`, then do the requests to `localhost:3000/
 | `/rates`  | GET    | Returns the list of rates in the DB                |
 | `/genres` | GET    | Returns the list of genres in the DB               |
 
-Accepted query strings:
+## Accepted query strings:
 
 | Endpoint | Method | Query string    | Response                                            |
 | -------- | ------ | --------------- | --------------------------------------------------- |
@@ -26,3 +26,9 @@ Accepted query strings:
 | `/`      | GET    | `?sortBy=title` | The 100 movies sorted by title (in ascending order) |
 | `/`      | GET    | `?sortBy=year`  | The 100 movies sorted by year (in ascending order)  |
 | `/`      | GET    | `?sortBy=rate`  | The 100 movies sorted by rate (in ascending order)  |
+
+## Stack:
+
+- NodeJS
+- Express
+- npm
