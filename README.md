@@ -2,7 +2,9 @@
 
 ## How to use the project:
 
-Clone the repo and run `npm install` to install the dependencies. Then run `npm run dev` and do the requests to `localhost:3000/api/muvis/`
+- Clone the repo and run `npm install` to install the dependencies.
+- Complete the environment variables with an API KEY from [The Movie Database API](https://developers.themoviedb.org/3/getting-started/introduction)
+- Then run `npm run dev` and do the requests to `localhost:3000/api/muvis/`
 
 ## Endpoints:
 
