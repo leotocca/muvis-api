@@ -31,10 +31,14 @@
 
 ## Accepted .json object example for PUT and POST requests:
 
-`{ "title": "Steven Universe: The Movie", "overview": "Two years after the events of \"Change Your Mind\", Steven (now 16 years old) and his friends are ready to enjoy the rest of their lives peacefully. However, all of that changes when a new sinister Gem arrives, armed with a giant drill that saps the life force of all living things on Earth. In their biggest challenge ever, the Crystal Gems must work together to save all organic life on Earth within 48 hours.", "date": "September 2, 2019", "genres": [ "Adventure", "Animation", "Comedy", "Family", "Fantasy", "Music", "Science Fiction", "TV Movie" ], "poster": "/8mRgpubxHqnqvENK4Bei30xMDvy.jpg", "backdrop": "/re3ZvlKJg04iLpLRf1xTKHS2wLU.jpg", "rate": 8.8 }`
+`.json { "title":"Steven Universe: The Movie", "overview":"Two years after the events of \"Change Your Mind\", Steven (now 16 years old) and his friends are ready to enjoy the rest of their lives peacefully. However, all of that changes when a new sinister Gem arrives, armed with a giant drill that saps the life force of all living things on Earth. In their biggest challenge ever, the Crystal Gems must work together to save all organic life on Earth within 48 hours.", "date":"September 2, 2019", "genres":[ "Adventure", "Animation", "Comedy", "Family", "Fantasy", "Music", "Science Fiction", "TV Movie" ], "poster":"/8mRgpubxHqnqvENK4Bei30xMDvy.jpg", "backdrop":"/re3ZvlKJg04iLpLRf1xTKHS2wLU.jpg", "rate":8.8 }`
 
 ## Stack:
 
 - NodeJS
 - Express
 - npm
+
+```
+
+```
