@@ -8,35 +8,50 @@
 
 ## Endpoints:
 
-| Endpoint  | Method | Response                                           |
-| --------- | ------ | -------------------------------------------------- |
-| `/`       | GET    | 100 movies in `json` format                        |
-| `/`       | POST   | Adds a new movie, returns the movie that was added |
-| `/:id`    | GET    | The movie with the ID param                        |
-| `/:id`    | PUT    | Modifies the movie with the ID param               |
-| `/:id`    | DELETE | Deletes the movie with the ID param                |
-| `/years`  | GET    | Returns the list of years in the DB                |
-| `/rates`  | GET    | Returns the list of rates in the DB                |
-| `/genres` | GET    | Returns the list of genres in the DB               |
+| Method | Endpoint  | Usage                                              | Returns |
+| ------ | --------- | -------------------------------------------------- | ------- |
+| GET    | `/`       | 100 movies in `json` format                        | Movies  |
+| POST   | `/`       | Adds a new movie, returns the movie that was added | Movie   |
+| GET    | `/:id`    | Get a movie with specified ID                      | Movie   |
+| PUT    | `/:id`    | Modify a movie                                     | Movie   |
+| DELETE | `/:id`    | Delete a movie                                     | Movies  |
+| GET    | `/years`  | Get the list of years in the DB                    | Years   |
+| GET    | `/rates`  | Get the list of rates in the DB                    | Rates   |
+| GET    | `/genres` | Get the list of genres in the DB                   | Genres  |
 
 ## Accepted query strings:
 
-| Endpoint | Method | Query string    | Response                                            |
-| -------- | ------ | --------------- | --------------------------------------------------- |
-| `/`      | GET    | `?year=`        | A list of movies that were launched that year       |
-| `/`      | GET    | `?genre=`       | A list of movies that contains the requested genre  |
-| `/`      | GET    | `?sortBy=title` | The 100 movies sorted by title (in ascending order) |
-| `/`      | GET    | `?sortBy=year`  | The 100 movies sorted by year (in ascending order)  |
-| `/`      | GET    | `?sortBy=rate`  | The 100 movies sorted by rate (in ascending order)  |
+| Method | Endpoint | Query string    | Usage                                                   |
+| ------ | -------- | --------------- | ------------------------------------------------------- |
+| GET    | `/`      | `?year=`        | Get a list of movies that were launched that year       |
+| GET    | `/`      | `?genre=`       | Get a list of movies that contains the requested genre  |
+| GET    | `/`      | `?sortBy=title` | Get all the movies sorted by title (in ascending order) |
+| GET    | `/`      | `?sortBy=year`  | Get all the movies sorted by year (in ascending order)  |
+| GET    | `/`      | `?sortBy=rate`  | Get all the movies sorted by rate (in ascending order)  |
+
+## Movie Example
+
+```json
+{
+  "id": 155,
+  "title": "The Dark Knight",
+  "overview": "Batman raises the stakes in his war on crime. With the help of Lt. Jim Gordon and District Attorney Harvey Dent, Batman sets out to dismantle the remaining criminal organizations that plague the streets. The partnership proves to be effective, but they soon find themselves prey to a reign of chaos unleashed by a rising criminal mastermind known to the terrified citizens of Gotham as the Joker.",
+  "date": "July 16, 2008",
+  "genres": ["Action", "Crime", "Drama", "Thriller"],
+  "poster": "/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
+  "backdrop": "/cfT29Im5VDvjE0RpyKOSdCKZal7.jpg",
+  "rate": 8.4
+}
+```
 
 ## Accepted .json object example for PUT and POST requests:
 
-```json 
+```json
 {
-  "title":"Steven Universe: The Movie",
-  "overview":"Two years after the events of \"Change Your Mind\", Steven (now 16 years old) and his friends are ready to enjoy the rest of their lives peacefully. However, all of that changes when a new sinister Gem arrives, armed with a giant drill that saps the life force of all living things on Earth. In their biggest challenge ever, the Crystal Gems must work together to save all organic life on Earth within 48 hours.",
-  "date":"September 2, 2019",
-  "genres":[
+  "title": "Steven Universe: The Movie",
+  "overview": "Two years after the events of \"Change Your Mind\", Steven (now 16 years old) and his friends are ready to enjoy the rest of their lives peacefully. However, all of that changes when a new sinister Gem arrives, armed with a giant drill that saps the life force of all living things on Earth. In their biggest challenge ever, the Crystal Gems must work together to save all organic life on Earth within 48 hours.",
+  "date": "September 2, 2019",
+  "genres": [
     "Adventure",
     "Animation",
     "Comedy",
@@ -46,9 +61,9 @@
     "Science Fiction",
     "TV Movie"
   ],
-  "poster":"/8mRgpubxHqnqvENK4Bei30xMDvy.jpg",
-  "backdrop":"/re3ZvlKJg04iLpLRf1xTKHS2wLU.jpg",
-  "rate":8.8
+  "poster": "/8mRgpubxHqnqvENK4Bei30xMDvy.jpg",
+  "backdrop": "/re3ZvlKJg04iLpLRf1xTKHS2wLU.jpg",
+  "rate": 8.8
 }
 ```
 
@@ -57,7 +72,3 @@
 - NodeJS
 - Express
 - npm
-
-```
-
-```

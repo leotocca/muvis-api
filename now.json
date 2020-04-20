@@ -5,22 +5,22 @@
   "routes": [
     {
       "src": "/",
-      "dest": "/index.js",
+      "dest": "index.js",
       "methods": ["GET", "POST", "PUT", "DELETE"]
     },
     {
       "src": "/genres",
-      "dest": "/index.js",
+      "dest": "index.js",
       "methods": ["GET"]
     },
     {
       "src": "/years",
-      "dest": "/index.js",
+      "dest": "index.js",
       "methods": ["GET"]
     },
     {
       "src": "/rates",
-      "dest": "/index.js",
+      "dest": "index.js",
       "methods": ["GET"]
     }
   ]

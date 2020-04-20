@@ -9,11 +9,7 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 const hostname = process.env.HOSTNAME || "localhost";
-
 const router = require("./api/routes/routes");
-
-app.use(compression());
-app.use(helmet());
 
 if (process.env.NODE_ENV === "production") {
   app.use(
@@ -26,10 +22,11 @@ if (process.env.NODE_ENV === "production") {
   app.use(morgan("dev"));
 }
 
+app.use("/", router);
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-
-app.use("/api/muvis", router);
+app.use(compression());
+app.use(helmet());
 
 app.use((err, req, res, next) => {
   res.json({ message: err.message });

@@ -33,9 +33,9 @@ router
       res.status(200).json(db.findMovieByTitle(req.body.title));
     } else {
       const err = new Error(
-        `404 - The movie can't be added, it already exists in db`
+        `400 - Bad Request: the movie with title ${req.body.title} can't be added, it already exists in db`
       );
-      res.status(404);
+      res.status(400);
       next(err);
     }
   });
