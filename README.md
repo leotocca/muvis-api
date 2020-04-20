@@ -13,8 +13,8 @@
 | GET    | `/api/muvis`        | 100 movies in `json` format                        | Movies  |
 | POST   | `/api/muvis`        | Adds a new movie, returns the movie that was added | Movie   |
 | GET    | `/api/muvis/:id`    | Get a movie with specified ID                      | Movie   |
-| PUT    | `/api/muvis/:id`    | Modify a movie                                     | Movie   |
-| DELETE | `/api/muvis/:id`    | Delete a movie                                     | Movies  |
+| PUT    | `/api/muvis/:id`    | Modify a movie with specified ID                   | Movie   |
+| DELETE | `/api/muvis/:id`    | Delete a movie with specified ID                   | Movies  |
 | GET    | `/api/muvis/years`  | Get the list of years in the DB                    | Years   |
 | GET    | `/api/muvis/rates`  | Get the list of rates in the DB                    | Rates   |
 | GET    | `/api/muvis/genres` | Get the list of genres in the DB                   | Genres  |
