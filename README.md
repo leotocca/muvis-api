@@ -4,30 +4,30 @@
 
 - Clone the repo and run `npm install` to install the dependencies.
 - Complete the environment variables with an API KEY from [The Movie Database API](https://developers.themoviedb.org/3/getting-started/introduction) (You have to create an user - it's free!)
-- Then run `npm run dev` and do the requests to `localhost:3000/api/muvis/`
+- Run `npm run dev` and do the requests to `localhost:3000/api/muvis/`
 
 ## Endpoints:
 
-| Method | Endpoint  | Usage                                              | Returns |
-| ------ | --------- | -------------------------------------------------- | ------- |
-| GET    | `/`       | 100 movies in `json` format                        | Movies  |
-| POST   | `/`       | Adds a new movie, returns the movie that was added | Movie   |
-| GET    | `/:id`    | Get a movie with specified ID                      | Movie   |
-| PUT    | `/:id`    | Modify a movie                                     | Movie   |
-| DELETE | `/:id`    | Delete a movie                                     | Movies  |
-| GET    | `/years`  | Get the list of years in the DB                    | Years   |
-| GET    | `/rates`  | Get the list of rates in the DB                    | Rates   |
-| GET    | `/genres` | Get the list of genres in the DB                   | Genres  |
+| Method | Endpoint            | Usage                                              | Returns |
+| ------ | ------------------- | -------------------------------------------------- | ------- |
+| GET    | `/api/muvis`        | 100 movies in `json` format                        | Movies  |
+| POST   | `/api/muvis`        | Adds a new movie, returns the movie that was added | Movie   |
+| GET    | `/api/muvis/:id`    | Get a movie with specified ID                      | Movie   |
+| PUT    | `/api/muvis/:id`    | Modify a movie                                     | Movie   |
+| DELETE | `/api/muvis/:id`    | Delete a movie                                     | Movies  |
+| GET    | `/api/muvis/years`  | Get the list of years in the DB                    | Years   |
+| GET    | `/api/muvis/rates`  | Get the list of rates in the DB                    | Rates   |
+| GET    | `/api/muvis/genres` | Get the list of genres in the DB                   | Genres  |
 
 ## Accepted query strings:
 
-| Method | Endpoint | Query string    | Usage                                                   |
-| ------ | -------- | --------------- | ------------------------------------------------------- |
-| GET    | `/`      | `?year=`        | Get a list of movies that were launched that year       |
-| GET    | `/`      | `?genre=`       | Get a list of movies that contains the requested genre  |
-| GET    | `/`      | `?sortBy=title` | Get all the movies sorted by title (in ascending order) |
-| GET    | `/`      | `?sortBy=year`  | Get all the movies sorted by year (in ascending order)  |
-| GET    | `/`      | `?sortBy=rate`  | Get all the movies sorted by rate (in ascending order)  |
+| Method | Endpoint     | Query string    | Usage                                                   |
+| ------ | ------------ | --------------- | ------------------------------------------------------- |
+| GET    | `/api/muvis` | `?year=`        | Get a list of movies that were launched that year       |
+| GET    | `/api/muvis` | `?genre=`       | Get a list of movies that contains the requested genre  |
+| GET    | `/api/muvis` | `?sortBy=title` | Get all the movies sorted by title (in ascending order) |
+| GET    | `/api/muvis` | `?sortBy=year`  | Get all the movies sorted by year (in ascending order)  |
+| GET    | `/api/muvis` | `?sortBy=rate`  | Get all the movies sorted by rate (in ascending order)  |
 
 ## Movie Example
 
@@ -72,3 +72,5 @@
 - NodeJS
 - Express
 - npm
+
+Inspiration for the api documentation taken from [Spotify API](https://developer.spotify.com/documentation/web-api/reference/)

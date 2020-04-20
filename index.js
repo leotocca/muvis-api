@@ -22,7 +22,7 @@ if (process.env.NODE_ENV === "production") {
   app.use(morgan("dev"));
 }
 
-app.use("/", router);
+app.use("/api/muvis", router);
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(compression());
